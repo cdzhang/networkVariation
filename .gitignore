@@ -1,3 +1,13 @@
+*.png
+*.pdf
+.RData
+.Rhistory
+*.txt
+.classpath
+.*
+data
+dimerization
+test
 # Windows image file caches
 Thumbs.db
 ehthumbs.db

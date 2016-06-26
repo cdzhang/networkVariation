@@ -1,0 +1,90 @@
+
+\makeatletter
+\def\PYGNlogo@reset{\let\PYGNlogo@it=\relax \let\PYGNlogo@bf=\relax%
+    \let\PYGNlogo@ul=\relax \let\PYGNlogo@tc=\relax%
+    \let\PYGNlogo@bc=\relax \let\PYGNlogo@ff=\relax}
+\def\PYGNlogo@tok#1{\csname PYGNlogo@tok@#1\endcsname}
+\def\PYGNlogo@toks#1+{\ifx\relax#1\empty\else%
+    \PYGNlogo@tok{#1}\expandafter\PYGNlogo@toks\fi}
+\def\PYGNlogo@do#1{\PYGNlogo@bc{\PYGNlogo@tc{\PYGNlogo@ul{%
+    \PYGNlogo@it{\PYGNlogo@bf{\PYGNlogo@ff{#1}}}}}}}
+\def\PYGNlogo#1#2{\PYGNlogo@reset\PYGNlogo@toks#1+\relax+\PYGNlogo@do{#2}}
+
+\expandafter\def\csname PYGNlogo@tok@vc\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.04,0.04,0.04}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@cm\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.35,0.35,0.35}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@vg\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.04,0.04,0.04}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@vi\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.04,0.04,0.04}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@mh\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.59,0.22,0.00}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@ch\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.35,0.35,0.35}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@il\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.59,0.22,0.00}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@cs\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.35,0.35,0.35}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@cp\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.35,0.35,0.35}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@ni\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.04,0.04,0.04}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@nl\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.04,0.04,0.04}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@nn\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.04,0.04,0.04}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@no\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.59,0.22,0.00}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@na\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.04,0.04,0.04}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@nb\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.04,0.04,0.04}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@nc\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.04,0.04,0.04}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@nd\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.04,0.04,0.04}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@ne\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.04,0.04,0.04}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@nf\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.40,0.00,0.59}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@nx\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.04,0.04,0.04}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@si\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.59,0.22,0.00}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@s2\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.59,0.22,0.00}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@py\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.04,0.04,0.04}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@nt\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@nv\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.04,0.04,0.04}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@s1\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.59,0.22,0.00}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@m\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.59,0.22,0.00}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@sh\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.59,0.22,0.00}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@ow\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.40,0.00,0.59}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@sx\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.59,0.22,0.00}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@bp\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.04,0.04,0.04}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@c1\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.35,0.35,0.35}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@o\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.40,0.00,0.59}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@kc\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.00,0.50,0.41}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@c\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.35,0.35,0.35}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@mf\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.59,0.22,0.00}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@err\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}\def\PYGNlogo@bc##1{\setlength{\fboxsep}{0pt}\colorbox[rgb]{1.00,0.67,0.67}{\strut ##1}}}
+\expandafter\def\csname PYGNlogo@tok@mb\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.59,0.22,0.00}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@ss\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.59,0.22,0.00}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@sr\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.59,0.22,0.00}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@mo\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.59,0.22,0.00}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@kd\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.00,0.50,0.41}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@mi\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.59,0.22,0.00}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@kn\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.00,0.50,0.41}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@cpf\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.35,0.35,0.35}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@n\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.04,0.04,0.04}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@kr\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.00,0.50,0.41}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@s\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.59,0.22,0.00}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@kp\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.00,0.50,0.41}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@w\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@kt\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.00,0.50,0.41}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@sc\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.59,0.22,0.00}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@sb\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.59,0.22,0.00}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@k\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.00,0.50,0.41}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@se\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.59,0.22,0.00}{##1}}}
+\expandafter\def\csname PYGNlogo@tok@sd\endcsname{\def\PYGNlogo@tc##1{\textcolor[rgb]{0.59,0.22,0.00}{##1}}}
+
+\def\PYGNlogoZbs{\char`\\}
+\def\PYGNlogoZus{\char`\_}
+\def\PYGNlogoZob{\char`\{}
+\def\PYGNlogoZcb{\char`\}}
+\def\PYGNlogoZca{\char`\^}
+\def\PYGNlogoZam{\char`\&}
+\def\PYGNlogoZlt{\char`\<}
+\def\PYGNlogoZgt{\char`\>}
+\def\PYGNlogoZsh{\char`\#}
+\def\PYGNlogoZpc{\char`\%}
+\def\PYGNlogoZdl{\char`\$}
+\def\PYGNlogoZhy{\char`\-}
+\def\PYGNlogoZsq{\char`\'}
+\def\PYGNlogoZdq{\char`\"}
+\def\PYGNlogoZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYGNlogoZat{@}
+\def\PYGNlogoZlb{[}
+\def\PYGNlogoZrb{]}
+\makeatother
+
