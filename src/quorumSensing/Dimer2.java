@@ -7,132 +7,142 @@ import java.math.BigDecimal;
 import java.util.LinkedList;
 import java.util.Random;
 
-public class Dimerization {
+public class Dimer2 {
 	private double[] B1 = {
-			4.326E-5
-			,0.00502
-			,0.01785
-			,4.698E-4
-			,1.872E-4
-			,1.086
-			,0.03043
-			,4.302E-4
-			,0.001684
+			9.728E-5
+			,0.006318
+			,0.007987
+			,6.191E-4
+			,1.766E-4
+			,1.46
+			,0.01809
+			,4.555E-4
+			,70.746
+			,1069.779
 			,3.0E-6
-			,0.01632
-			,3.72E-4
-			,6.291E-5
-			,0.1546
-			,2.548E-4
-			,27.87
-			,0.3988
-			,4.044E-6
-			,0.01567
+			,0.00772
+			,7.69E-4
+			,6.216E-5
+			,0.07401
+			,5.267E-4
+			,39.547
+			,0.8655
+			,8.341E-6
+			,0.01888
 	};
-	private double[] B2 ={//base line
-			4.668E-5
-			,0.004623
-			,0.01926
-			,4.327E-4
-			,1.875E-4
-			,1.054
-			,0.03283
-			,3.962E-4
-			,0.001817
+	private double[] B2 ={
+			9.92E-5
+			,0.006192
+			,0.008145
+			,6.067E-4
+			,1.766E-4
+			,1.458
+			,0.01844
+			,4.464E-4
+			,72.042
+			,1056.09
 			,3.0E-6
-			,0.01761
-			,3.426E-4
-			,6.301E-5
-			,0.01668
-			,2.347E-4
-			,25.8
-			,0.3673
-			,4.363E-6
-			,0.01443
+			,0.007818
+			,7.592E-4
+			,6.216E-5
+			,0.07495
+			,5.2E-4
+			,39.208
+			,0.8482
+			,8.424E-6
+			,0.01869
 	};
-	private double[] B3 = {
-			6.273E-5
-			,0.002761
-			,0.02588
-			,2.584E-4
-			,2.714E-4
-			,0.5973
-			,0.04412
-			,2.366E-4
-			,0.00214
-			,3.0E-6
-			,0.02074
-			,2.311E-4
-			,7.951E-5
-			,0.0156
-			,1.583E-4
-			,27.624
-			,0.2193
-			,5.864E-6
-			,0.008619
-			};
-	private double[] B4={
-			6.160247505039312E-5
-			,9.22167484175848E-4
-			,0.025414985781329582
-			,7.837730154909747E-5
-			,2.5757099613948507E-4
-			,0.9725494874521773
-			,0.03462621495095533
-			,1.24664309372095E-6
-			,4.031796374038114E-4
-			,3.180925829880949E-6
-			,0.0011843036212531833
-			,5.447569045059144E-4
-			,6.254014005294303E-5
-			,0.0027199148661958394
-			,3.6417397665888996E-4
-			,37.571795672012065
-			,0.0485655883641746
-			,2.9124754200183724E-6
-			,0.019854682278356926
+	private double[] B3={
+			1.449472E-4
+			,0.00322218
+			,0.011900629999999999
+			,3.15741E-4
+			,2.445241568669632E-4
+			,0.7446
+			,0.024267478906827573
+			,2.32305E-4
+			,83.6870267955146
+			,830.071322226896
+			,2.9999849573220737E-6
+			,0.009129179575403452
+			,5.966885186494567E-4
+			,7.175642796518999E-5
+			,0.07640578370896509
+			,4.0868119996445844E-4
+			,38.22531417212959
+			,0.44140500000000005
+			,1.1370596770346575E-5
+			,0.0096288
+	};
+	double[] B4 = {
+			2.157057615908111E-4
+			,0.004325371566803694
+			,0.01899294047137961
+			,4.22641179759869E-4
+			,0.0020043765258987017
+			,1.3261310232715051
+			,0.0030390182892096732
+			,3.126184762271783E-4
+			,15.597197246528248
+			,4229.053905359846
+			,4.215508455218751E-6
+			,0.0030876185510485175
+			,0.0030400131757921814
+			,7.947908628169854E-5
+			,0.022502889232934208
+			,0.002082151972390437
+			,277.36388960028074
+			,0.46186755474213165
+			,2.3628330758242442E-6
+			,0.13959686619935044
 	};
 	double maxA = 200;
 	double maxP = 10000;
 	double pdfm = 0;
 	private int N = B1.length;
-	private double k_RA,d_P,k_r,d_R,r_0,K_r,V_r,d_r,V_A,d_A,k_i,d_I,i_0,V_i,d_i,K_i,sgm,k_M,d_M;
+	private double k_RA,d_P,k_r,d_R,r_0,K_r,V_r,d_r,V_A,K_I,d_A,k_i,d_I,i_0,V_i,d_i,K_i,sgm,k_M,d_M;
 	double lowMax = 12;
 	double highMin = 40;
 	double highMax = 5000;
-	double peak0 = -5;
+	double peak0 = -3;
 	double[] Bfit = B1.clone();
-    Dimerization(){
+	Dimer2(){
     	assignParameters();
     }
-    Dimerization(double[] B){
+	Dimer2(double[] B){
     	this.B1 = B;
     }
     private double Ae = 0;
     public static void main(String[] arg) throws FileNotFoundException{
-    	Dimerization b = new Dimerization();
+    	Dimer2 b = new Dimer2();
     	b.run();
     }
     public void run() throws FileNotFoundException{
-/*    	double[] b = ones(N);
-    	B1=B2;
-    	assignParameters(B1);
-    	plotAe();
-    	Ae=0;
-    	print(allComponents());
-    	Ae=30;
-    	print(allComponents());
-    	double[] B = set2();
-    	print1(B);
-    	B1=B;
-    	assignParameters(B1);
-    	plotAe();*/
-    	//print1(gradient(b));
-    	//double[] B = set1();
+    	//double[] B = fit(B1);
+    	//print1(precision(B));
+    	//checkComponents();
+    	//plotAe();
+    	//set4(B1);
+    	//print1(B);
+    	//B1 = B2;
+/*    	B2 = precision(B2);
     	assignParameters(B2);
-    	double[] A = {0,15,30};
-    	//plotfP(B2,A);
-    	plotdfP(B2,A);
+    	print1(B2);
+    	plotAe();
+    	double[] b = new double[N];
+    	for(int i=0;i<N;i++){
+    		b[i] = (B2[i]-B1[i])/B1[i];
+    	}*/
+    	double[] b = new double[N];
+    	for(int i=0;i<N;i++)
+    		b[i] = (B4[i]-B1[i])/B1[i];
+    	print1(b);
+    }
+    void checkComponents(){
+    	Ae = 0;
+    	print(allComponents());
+    	Ae = 30;
+    	print(allComponents());
     }
     void restrictValues(double[] B){
     	if(B[16]>0.45) B[16] = 0.45;
@@ -149,69 +159,9 @@ public class Dimerization {
     			B[i] = B0[i]*(1-a);
     	}
     }
-  /*  public boolean fit(int K){
-    	double[] BB = Bfit.clone();
-    	boolean needFit = false;
-    	for(int i=0;i<K;i++){
-    		if(!isASimilar(BB)){
-    			BB = AediffNextPoint(BB);
-    			if(!checkB(BB)){
-    				print("1");
-    			}
-    			restrictValues(BB);
-    			needFit = true;
-    		}
-    	}
-    	for(int i=0;i<K;i++){
-    		if(!isLow(BB)){
-    			Ae = 0;
-    			BB = nextPoint(BB,1e-8,lowMax);
-    			if(!checkB(BB)){
-    				print("2");
-    			}
-    			restrictValues(BB);
-    	    	assignParameters(BB);
-    	    	double min = minConcentration();
-    	    	print(min);
-    	    	needFit = true;
-    		}
-    	}
-    	for(int i=0;i<K;i++){
-    		if(!isHigh(BB)){
-    			Ae = 40;
-    			BB = nextPoint(BB,highMin,highMax);
-    			if(!checkB(BB)){
-    				print("3");
-    			}
-    			restrictValues(BB);
-    	    	assignParameters(BB);
-    	    	double min = minConcentration();
-    	    	double max = maxConcentration();
-    	    	print(min+","+max);
-    	    	needFit = true;
-    	    	
-    		}
-    	}
-    	for(int i=0;i<K;i++){
-    		if(!isAe0(BB)){
-    			BB = peakNextPoint(BB);
-    			restrictValues(BB);
-    			assignParameters(BB);
-    			if(!checkB(BB)){
-    				print("4");
-    			}
-    			double p = peak(0);
-    			print(p);
-    			needFit = true;
-    		}
-    	}
-    	print1(BB);
-    	Bfit = BB;
-    	return needFit;
-    }*/
     double[] fit(double[] B){
     	double tB = totalScore(B);
-    	double ERR = 1e-3;
+    	double ERR = 1e-2;
     	int i=0;
     	while(tB > ERR){
     		print("tB="+tB);
@@ -334,7 +284,8 @@ public class Dimerization {
     	return 0;
     }
     public double totalScore(double[] B){
-    	return isASimilar(B)+isLow(B)+isHigh(B)+isAe0(B);
+    	//return isASimilar(B)+isLow(B)+isHigh(B)+isAe0(B);
+    	return isLow(B)+isHigh(B)+isAe0(B);
     }
     //fit
  
@@ -527,30 +478,11 @@ public class Dimerization {
     	return BB;
     }
 
-
     public void run2(){
-/*    	//set4();
-    	
-    	plotfP(B4,A);
-    	double[] b = new double[N];
-    	for(int i=0;i<N;i++)
-    		b[i] = B4[i]/B1[i];
-    	//print(peakDfp(10,b));
-    	
-*/    
-/*    	assignParameters(B4);
-    	print(maxCurAe());
-    	print(minCurAe());
-		print(AeThreshold());
-		//plotAe();
-		for(double A=0;A<25;A=A+0.1){
-			print(A+"\t"+dso(A)+"\t"+ddso(A)+"\t"+curvature(A));
-		}*/
     	double[] A = {0,15,30};
     	//plotdfP(B4,A);
     	assignParameters(B1);
     	peakDfp(0);
-    	
     	print(pdfm);
     	for(double A1=10;A1<20;A1=A1+0.1){
     		Ae=A1;
@@ -574,7 +506,6 @@ public class Dimerization {
     		for(double Ae:A){
     			this.Ae=Ae;
     			s = s+"\t"+fP(p);
-    			//print(fP(21652.9));
     		}
     		print(s);
     	}
@@ -597,7 +528,7 @@ public class Dimerization {
         double i = i_0/d_i + (V_i/d_i)*M/(K_i+M);
         double I = k_i*i/d_I;
         double A = d_P*P/(k_RA*R);
-        return V_A*I - d_A*A + sgm*(Ae-A);
+        return V_A*I/(K_I+I) - d_A*A + sgm*(Ae-A);
     }
     private double dfP(double P,double dP){//for test purpose, test if dP is enough
         double df = (fP(P+dP)-fP(P))/dP;
@@ -609,7 +540,7 @@ public class Dimerization {
         return df;
     }
     private double ddfP(double P){
-        double dP = 1e-4;
+        double dP = 1e-3;
         double dfp = (dfP(P+dP)-dfP(P))/dP;
         return dfp;
     }
@@ -685,14 +616,9 @@ public class Dimerization {
     		dp = ddfP(p);
     	}
     	pdfm = p;
-    	//print("p="+p);
     	return dfP(p);
     }
-    private double peakDfp(double Ae, double[] b){
-    	double[] BB = new double[N];
-    	for(int i=0;i<N;i++){
-    		BB[i] = b[i]*B1[i];
-    	}
+    private double peakDfp(double Ae, double[] BB){
     	assignParameters(BB);
     	return peakDfp(Ae);
     }
@@ -759,7 +685,7 @@ public class Dimerization {
     	}
     	return g;
     }
-    private double[] peakDfpGradient(double A,double[] b){
+/*    private double[] peakDfpGradient(double A,double[] b){
     	double[] g = new double[N];
     	double db=1e-3;
     	double bp = peakDfp(A,b);
@@ -769,7 +695,7 @@ public class Dimerization {
         	g[i] = (peakDfp(A,bi)-bp)/db;
     	}
     	return g;
-    }
+    }*/
    
     private double[] gradient(double[] b){
     	double Ab = AeThreshold(b);
@@ -791,9 +717,9 @@ public class Dimerization {
     		b[i] = 1;
     	}
     	double[] b0 = ones(N);
-    	double a = 0.5;
+    	double a = 0.49;
     	double bt = bottom(A,b);
-    	double dr = 1e-1;
+    	double dr = 1e-2;
     	while(bt < 0.001){
     		double[] g = bottomGradient(A,b);
     		for(int i=0;i<N;i++){
@@ -851,7 +777,7 @@ public class Dimerization {
     	double[] b0 = ones(N);
     	double bt = peak(A,b);
     	double dr = 0.01;
-    	double a = 0.079;
+    	double a = 0.03;
     	while(bt <0.4){
     		double[] g = peakGradient(A,b);
     		for(int i=0;i<N;i++){
@@ -876,16 +802,20 @@ public class Dimerization {
     	print(BB);
     	return BB;
     }
-    public void set4(){
+    public void set4(double[] B){
     	double A = 15;
-    	double[] b = new double[N];
-    	for(int i=0;i<N;i++){
-    		b[i] = 1;
-    	}
-    	double bt = peakDfp(A,b);
-    	double dr = 5e-2;
-    	while(bt > 0){
-    		double[] g = peakDfpGradient(A,b);
+    	double bt = peakDfp(A,B);
+    	double db = 1e-3;
+    	double dr = 1e-3;
+    	double[] BB = new double[N];
+    	while(bt > -0.01){
+    		double[] g = new double[N];
+    		for(int i=0;i<N;i++){
+        		double[] Bi = B.clone();
+        		Bi[i] = B[i]*(1+db);
+        		double bti = peakDfp(A,Bi);
+        		g[i] = (bti-bt)/db;
+    		}
 			double maxg = 0;
     		for(int i=0;i<N;i++){
     			double gi = Math.abs(g[i]);
@@ -893,17 +823,18 @@ public class Dimerization {
     				maxg=gi;
     			}
     		}
-    		dr = 0.001/maxg;
+    		dr = 0.01/maxg;
+    		//print(g);
     		for(int i=0;i<N;i++)
-    			b[i] = b[i] - g[i]*dr;
-    		bt = peakDfp(A,b);
+    			BB[i] = B[i]*(1 - g[i]*dr);
+    		B = BB;
+    		bt = peakDfp(A,B);
     		print("bt="+bt);
     	}
-    	double[] BB = new double[N];
-    	for(int i=0;i<N;i++)
-    		BB[i] = b[i] * B1[i];
-    	print1(BB);
+    	print1(B);
     }
+    
+    
     private boolean oneSample1(double range){
     	Random rd = new Random();
     	double[] b = new double[N];
@@ -1151,19 +1082,20 @@ public class Dimerization {
     	V_r = B1[6]; 
     	d_r = B1[7]; 
     	V_A = B1[8]; 
-    	d_A = B1[9];
-    	k_i = B1[10];
-    	d_I = B1[11];
-    	i_0 = B1[12];
-    	V_i = B1[13];
-    	d_i = B1[14];
-    	K_i = B1[15];
-    	sgm = B1[16];
-    	k_M = B1[17];
-    	d_M = B1[18];
+    	K_I = B1[9];
+    	d_A = B1[10];
+    	k_i = B1[11];
+    	d_I = B1[12];
+    	i_0 = B1[13];
+    	V_i = B1[14];
+    	d_i = B1[15];
+    	K_i = B1[16];
+    	sgm = B1[17];
+    	k_M = B1[18];
+    	d_M = B1[19];
     }
     private void assignParameters(double[] B){
-    	k_RA = B[0];
+    	k_RA =B[0];
     	d_P = B[1]; 
     	k_r = B[2]; 
     	d_R = B[3]; 
@@ -1172,16 +1104,17 @@ public class Dimerization {
     	V_r = B[6]; 
     	d_r = B[7]; 
     	V_A = B[8]; 
-    	d_A = B[9];
-    	k_i = B[10];
-    	d_I = B[11];
-    	i_0 = B[12];
-    	V_i = B[13];
-    	d_i = B[14];
-    	K_i = B[15];
-    	sgm = B[16];
-    	k_M = B[17];
-    	d_M = B[18];
+    	K_I = B[9];
+    	d_A = B[10];
+    	k_i = B[11];
+    	d_I = B[12];
+    	i_0 = B[13];
+    	V_i = B[14];
+    	d_i = B[15];
+    	K_i = B[16];
+    	sgm = B[17];
+    	k_M = B[18];
+    	d_M = B[19];
     }
     private void print(Object s){
     	System.out.println(s+"");
