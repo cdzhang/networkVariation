@@ -129,10 +129,12 @@ public class Dimerization {
     	plotAe();*/
     	//print1(gradient(b));
     	//double[] B = set1();
-    	assignParameters(B2);
-    	double[] A = {0,15,30};
+    	//assignParameters(B2);
+    	//double[] A = {0,15,30};
     	//plotfP(B2,A);
-    	plotdfP(B2,A);
+    	//plotdfP(B2,A);
+    	Ae=30;
+    	print(allComponents());
     }
     void restrictValues(double[] B){
     	if(B[16]>0.45) B[16] = 0.45;

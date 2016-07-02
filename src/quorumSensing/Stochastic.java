@@ -61,7 +61,7 @@ public class Stochastic {
 		}
 		print1(rate());
 		print("testlog");*/
-		for(int i=0;i<2000000;i++){
+		for(int i=0;i<200000;i++){
 			react();
 			if(i%100==0){
 				printComponents();
@@ -109,6 +109,7 @@ public class Stochastic {
 	public double[] rate() throws EvalError{
 		double[] rates = new double[Nr];
 		for(int i=0;i<Nr;i++){
+			//print(reactions[i].rateExpression);
 			eva.eval("_result="+reactions[i].rateExpression);
 			rates[i] = (Double) eva.get("_result");
 		}

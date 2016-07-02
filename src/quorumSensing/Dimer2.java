@@ -133,10 +133,16 @@ public class Dimer2 {
     	for(int i=0;i<N;i++){
     		b[i] = (B2[i]-B1[i])/B1[i];
     	}*/
-    	double[] b = new double[N];
-    	for(int i=0;i<N;i++)
-    		b[i] = (B4[i]-B1[i])/B1[i];
-    	print1(b);
+    	//double[] b = new double[N];
+    	//for(int i=0;i<N;i++)
+    		//b[i] = (B4[i]-B1[i])/B1[i];
+    	//print1(b);
+    	//sample("data/sample_30_june.txt",0.03,10000);
+    	/*double[] b = ones(N);
+    	print1(gradient(b));*/
+    	Ae=0;
+    	//print(allComponents());
+    	sample("data/compare_0_2.txt",0.2,100000);
     }
     void checkComponents(){
     	Ae = 0;
@@ -910,14 +916,14 @@ public class Dimer2 {
     	FileOutputStream fi = new FileOutputStream(file);
 		PrintWriter out = new PrintWriter(fi,true);
     	for(int i=1;i<s;i++){
-    		double Ai = oneSample(range);
-    		out.println(Ai);
+    		double[] Ai = oneSample(range);
+    		out.println(covert(Ai));
         	if(i%100==0)
         		System.out.println(i);
     	}
     	out.close();
     }
-    private double oneSample(double range){
+    private double[] oneSample(double range){
     	Random rd = new Random();
     	double[] b = new double[N];
     	double[] BB = new double[N];
@@ -925,12 +931,18 @@ public class Dimer2 {
     		b[i] = 1 - range + 2*range*rd.nextDouble();
     		BB[i] = b[i]*B1[i];
     	}
-    	/*String bs = "";
-    	for(double bi:b)
-    		bs +=  bi+"\t";
-    	System.out.println(bs);*/
-    	//return AeThreshold(b);
-    	return 0;
+    	assignParameters(BB);
+    	Ae = 0;
+    	double[] a1 = allComponents();
+    	Ae = 80;
+    	double[] a2 = allComponents();
+    	double[] a = new double[a1.length*2];
+    	for(int i=0;i<a1.length;i++){
+    		a[i] = a1[i];
+    		a[i+a1.length] = a2[i];
+    	}
+    	return a;
+
     }
    
     private void normalSample(String file,double std,int s) throws FileNotFoundException{
@@ -1161,5 +1173,13 @@ public class Dimer2 {
 		for(int i=0;i<BB.length;i++)
 			BB1[i] = precision(BB[i],3);
 		return BB1;
+	}
+	public String covert(double[] a){
+		int L = a.length;
+		String s = ""+a[0];
+		for(int i=1;i<L;i++){
+			s=s+","+a[i];
+		}
+		return s;
 	}
 }
