@@ -1,4 +1,6 @@
 package quorumSensing;
+
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -21,54 +23,61 @@ public class Stochastic {
 	double time=0;
 	Interpreter eva = new Interpreter();
 	Random random = new Random();
-	Stochastic(){}
+	String input = "data/input.txt";
+	Stochastic() throws IOException, EvalError{
+		parseInput(input);
+	}
 	Stochastic(String input) throws IOException, EvalError{
 		parseInput(input);
 	}
 	public static void main(String[] arg) throws EvalError, IOException{
-		Interpreter i = new Interpreter();
-		i.set("x",1.2);
-		i.set("y",2.3);
-		i.eval("x=(-x)+2");
-		Object re = i.get("x");
-		System.out.println(re);
-		System.out.println(i.get("x").getClass());
 		Stochastic s = new Stochastic();
 		s.run();
 	}
 	public void run() throws IOException, EvalError{
-		String input = "data/input.txt";
-		parseInput(input);
-		String outputFile = "data/output.txt";
+		 for(double Ae=100;Ae<=100;Ae=Ae+5)
+		 	oneAe(Ae);
+	}
+	void process(String outputFile) throws IOException, EvalError{
+		//String input = "data/input.txt";
+		//parseInput(input);
+		//String outputFile = "data/output.txt";
 		PrintWriter out = new PrintWriter(outputFile);
 		String output="time";
 		for(String com:comNames){
 			output += ","+com;
 		}
 		out.println(output);
-/*		print("Nc="+Nc);
-		print("components");
-		for(int i=0;i<Nc;i++){
-			print(components[i]+","+comNames[i]);
-		}
-		print("parameters");
-		for(int i=0;i<Np;i++){
-			print(paraNames[i]+"="+para[i]);
-		}
-		print("reactions");
-		for(int i=0;i<Nr;i++){
-			print(reactions[i]);
-		}
-		print1(rate());
-		print("testlog");*/
-		for(int i=0;i<200000;i++){
+		for(int i=0;i<20000000;i++){
 			react();
-			if(i%100==0){
+			if(i%10000==0){
 				printComponents();
 				out.println(getOutput());
 			}
 		}
 		out.close();
+	}
+	void oneAe(double Ae) throws EvalError, IOException{
+		String output = "output_"+Ae+".txt";
+		double[] com = getComponents(Ae);
+		updateInitialValues(com,Ae);
+		print("output data to" +output);
+		process(output);
+	}
+	double[] getComponents(double Ae){
+		Dimer2 d = new Dimer2();
+		//d.Ae = Ae;
+		double[] components = d.allComponents();
+		int N = components.length;
+		for(int i=0;i<N;i++)
+			components[i] = Math.round(components[i]);
+		return components;
+	}
+	public void updateInitialValues (double[] com,double Ae) throws EvalError{
+		for(int i=0;i<Nc;i++)
+			components[i] = com[i];
+		setComponents();
+		eva.set("Ae",Ae);
 	}
 	public void react() throws EvalError{
 		double[] rates = rate();
@@ -254,7 +263,7 @@ public class Stochastic {
 			eva.set(paraNames[i], para[i]);
 	}
 	private void setComponents() throws EvalError{
-		for(int i=0;i<Np;i++)
+		for(int i=0;i<Nc;i++)
 			eva.set(comNames[i], components[i]);
 	}
     private void print(Object s){

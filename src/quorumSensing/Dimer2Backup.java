@@ -7,95 +7,96 @@ import java.math.BigDecimal;
 import java.util.LinkedList;
 import java.util.Random;
 
-public class Dimer2 {
+public class Dimer2Backup {
 	private double[] B1 = {
-			0.944
-			,61.722
-			,539.312
-			,9.49E-5
-			,0.006265
-			,1.85E-4
-			,6.217E-5
-			,4.286E-4
-			,5.682E-4
-			,0.01776
-			,0.06853
-			,1.403
-			,41.641
-			,0.007794
-			,0.00715
-			,6.139E-4
-			,8.294E-4
+			0.8944
+			,65.933
+			,519.601
+			,1.002E-4
+			,0.005936
+			,1.851E-4
+			,6.218E-5
+			,4.061E-4
+			,5.474E-4
+			,0.01874
+			,0.07113
+			,1.399
+			,40.657
+			,0.008229
+			,0.007422
+			,5.816E-4
+			,7.991E-4
 			,3.0E-6
-			,8.241E-6
-			,0.0191
+			,8.467E-6
+			,0.01859
 			};
-	private	double[] B2={
-			0.9252
-			,62.852
-			,532.946
-			,9.677E-5
-			,0.00614
-			,1.85E-4
-			,6.217E-5
-			,4.201E-4
-			,5.615E-4
-			,0.01811
-			,0.06933
-			,1.401
-			,41.291
-			,0.007948
-			,0.007234
-			,6.017E-4
-			,8.196E-4
-			,3.0E-6
-			,8.322E-6
-			,0.01891
+			double[] B2={
+					0.8983
+					,64.061
+					,304.175
+					,8.888E-5
+					,0.006551
+					,1.766E-4
+					,6.214E-5
+					,4.328E-4
+					,5.553E-4
+					,0.01804
+					,0.07013
+					,1.47
+					,41.087
+					,0.007297
+					,0.007314
+					,6.418E-4
+					,8.108E-4
+					,3.0E-6
+					,7.974E-6
+					,0.01974
 			};
 			double[] B3={
-				0.5923
-				,54.848
-				,302.002
-				,1.085E-4
-				,0.003931
-				,3.172E-4
-				,9.98E-5
-				,2.69E-4
-				,3.182E-4
-				,0.01424
-				,0.06957
-				,0.6756
-				,38.435
-				,0.008906
-				,0.01143
-				,3.852E-4
-				,4.644E-4
-				,3.0E-6
-				,9.694E-6
-				,0.011
+			0.44140500000000005
+			,83.6870267955146
+			,830.071322226896
+			,1.449472E-4
+			,0.00322218
+			,2.445241568669632E-4
+			,7.175642796518999E-5
+			,2.32305E-4
+			,4.0868119996445844E-4
+			,0.024267478906827573
+			,0.07640578370896509
+			,0.7446
+			,38.22531417212959
+			,0.011900629999999999
+			,0.009129179575403452
+			,3.15741E-4
+			,5.966885186494567E-4
+			,2.9999849573220737E-6
+			,1.1370596770346575E-5
+			,0.0096288
 			};
 			double[] B4 ={
-					1.075
-					,51.435
-					,632.685
-					,1.11E-4
-					,0.008302
-					,0.003108
-					,7.949E-5
-					,6.002E-4
-					,2.634E-4
-					,0.006083
-					,0.01778
-					,1.24
-					,48.684
-					,0.009777
-					,0.00244
-					,8.114E-4
-					,0.003845
-					,4.216E-6
-					,8.292E-6
-					,0.01576
+			0.46186755474213165
+			,15.597197246528248
+			,4229.053905359846
+			,2.157057615908111E-4
+			,0.004325371566803694
+			,0.0020043765258987017
+			,7.947908628169854E-5
+			,3.126184762271783E-4
+			,0.002082151972390437
+			,0.0030390182892096732
+			,0.022502889232934208
+			,1.3261310232715051
+			,277.36388960028074
+			,0.01899294047137961
+			,0.0030876185510485175
+			,4.22641179759869E-4
+			,0.0030400131757921814
+			,4.215508455218751E-6
+			,2.3628330758242442E-6
+			,0.13959686619935044
 			};
+
 	double maxA = 200;
 	double maxP = 10000;
 	double pdfm = 0;
@@ -104,24 +105,49 @@ public class Dimer2 {
 	double lowMax = 12;
 	double highMin = 40;
 	double highMax = 5000;
-	double peak0 = -3;
+	double peak0 = -1.5;
 	double[] Bfit = B1.clone();
-	Dimer2(){
+	Dimer2Backup(){
     	assignParameters();
     }
-	Dimer2(double[] B){
+	Dimer2Backup(double[] B){
     	this.B1 = B;
     }
-    public double Ae = 0;
+    private double Ae = 0;
     public static void main(String[] arg) throws FileNotFoundException{
     	Dimer2 b = new Dimer2();
     	b.run();
     }
     public void run() throws FileNotFoundException{
-        for(double A=0;A<=300;A=A+1){
-            Ae = A;
-            print(A+","+maxConcentration());
-        }
+    	
+    	//double[] B = set2();
+    	//print1(precision(B));
+    	
+    	//checkComponents();
+    //	plotAe();
+    	//set4(B1);
+    	//print1(B);
+    	//B1 = B2;
+    	//B2 = precision(B2);
+    	double[] B = fit(B1);
+    	print1(precision(B1));
+    	assignParameters(B);
+    	plotAe();
+    	double[] b = new double[N];
+    	for(int i=0;i<N;i++){
+    		b[i] = (B2[i]-B1[i])/B1[i];
+    	}
+    	//double[] b = new double[N];
+    	//for(int i=0;i<N;i++)
+    		//b[i] = (B4[i]-B1[i])/B1[i];
+    	//print1(b);
+    	//sample("data/sample_30_june.txt",0.03,10000);
+    	/*double[] b = ones(N);
+    	print1(gradient(b));*/
+    	Ae=30;
+    	print(allComponents());
+    	//sample("data/compare_0_2.txt",0.2,100000);
+    	//display();
     }
     void display(){
     	String[] s = {
@@ -147,12 +173,7 @@ public class Dimer2 {
     			,"d_M"
     	};
     	for(int i=0;i<N;i++)
-    		print(s[i]+":"+B1[i]);
-    }
-    void showB(){
-        for(int i=0;i<N;i++){
-            print(""+(B2[i]-B1[i])/B1[i]+","+(B3[i]-B1[i])/B1[i]+","+(B4[i]-B1[i])/B1[i]);
-        }
+    		print(s[i]+"\t"+B1[i]);
     }
     void checkComponents(){
     	Ae = 0;
@@ -206,6 +227,29 @@ public class Dimer2 {
     		BB[i] = B[i]*(1-delta*g[i]);
     	}
     	//restrictValues(BB);
+    	return BB;
+    }
+    double[] AediffNextPoint(double[] B){
+    	double adb = Aediff(B);
+    	print(adb);
+    	double db = 1e-3;
+    	double delta = 1e-3;
+    	double[] g = new double[N];
+    	for(int i=N-3;i<N;i++){
+    		double[] Bi = (double[]) B.clone();
+    		Bi[i] = B[i]*(1+db);
+    		double adbi = Aediff(Bi);
+    		double gi = (adbi-adb)/db;
+    		g[i] = gi;
+    		double di = 1e-3/Math.abs(gi);
+    		if(delta>di)
+    			delta = di;
+    	}
+    	double[] BB = new double[N];
+    	if(adb>0)
+    		delta = -1*delta;
+    	for(int i=0;i<N;i++)
+    		BB[i] = B[i]*(1+delta*g[i]);
     	return BB;
     }
     double Aediff(double[] B){
@@ -278,7 +322,7 @@ public class Dimer2 {
     }
     public double totalScore(double[] B){
     	//return isASimilar(B)+isLow(B)+isHigh(B)+isAe0(B);
-    	return isLow(B)+isHigh(B)+isAe0(B);
+    	return isLow(B)+isHigh(B)+isAe(B)+isAe0(B);
     }
     //fit
  
@@ -288,6 +332,14 @@ public class Dimer2 {
     			return false;
     	}
     	return true;
+    }
+
+
+    double[] fitAe(double[] B){
+    	while(Math.abs(Aediff(B))>0.1){
+    		B = AediffNextPoint(B);
+    	}
+    	return B;
     }
     double[] allComponents(double P){
     	if(Math.abs(fP(P))>1e-5) return null;
@@ -302,16 +354,10 @@ public class Dimer2 {
     }
     double[] allComponents(){
     	LinkedList<Double> so =  solveStationary(Ae);
-        double P = so.getLast();
-    	return allComponents(P);
-    }
-    double[] allComponents(int i){
-    	LinkedList<Double> so =  solveStationary(Ae);
-    	double P = 0;
-    	if(i==1){
+    	
+    	double P = so.getFirst();
+    	if(Ae<5){
     		P = so.getLast();
-    	}else{
-    		P = so.getFirst();
     	}
     	return allComponents(P);
     }
@@ -481,7 +527,7 @@ public class Dimer2 {
     	}
     	}
     private void plotAe(){
-    	for(double Ae=0.0;Ae<=60.1;Ae=Ae+0.1){
+    	for(double Ae=0.0;Ae<=80.1;Ae=Ae+0.1){
     		LinkedList<Double> sl = solveStationary(Ae);
     		String s = Ae + "";
     		for(double so:sl){
@@ -490,9 +536,9 @@ public class Dimer2 {
     		print(s);
     	}
     }
-    public void plotfP(double[] B,double[] A,double pm){
+    public void plotfP(double[] B,double[] A){
     	assignParameters(B);
-    	for(double p=0;p<pm;p=p+0.1){
+    	for(double p=0;p<5000;p=p+1){
     		String s = p+"";
     		for(double Ae:A){
     			this.Ae=Ae;
@@ -723,7 +769,7 @@ public class Dimer2 {
     		for(int i=0;i<N;i++){
     			b[i] = b[i] + g[i]*dr;
     		}
-    		//restrict(a,b,b0);
+    		restrict(a,b,b0);
     		bt = bottom(A,b);
     		print("dr="+dr+",bt="+bt);
     	}
@@ -733,93 +779,6 @@ public class Dimer2 {
     	for(int i=0;i<N;i++)
     		BB[i] = b[i] * B1[i];
     	print(BB);
-    	return BB;
-    }
-    double[] fit3(double[] B){
-    	double tB = totalScore3(B);
-    	double ERR = 1e-2;
-    	int i=0;
-    	while(tB > ERR){
-    		print("tB="+tB);
-    		B = nextPoint3(B);
-    		tB = totalScore3(B);
-    		i++;
-    	}
-    	return B;
-    }
-    double totalScore3(double[] B){
-        	Ae = 0;
-        	assignParameters(B);
-        	double max = maxConcentration();
-        	double x2=0;
-        	if(max>8000){
-        		print("max="+max);
-        		x2 = (max-8000)/8000;
-        	}
-        	double y = bottom(0);
-        	double x1 = y>=0.001?0:(0.001-y)/0.001;
-        	return x1+x2;
-    }
-    double[] nextPoint3(double[] B){
-    	double tB = totalScore3(B);
-    	double db = 1e-3;
-    	double delta=5e-2;
-    	double[] g = new double[N];
-    	for(int i=0;i<N;i++){
-    		double[] Bi = B.clone();
-    		Bi[i] = B[i]*(1+db);
-    		double tBi = totalScore3(Bi);
-    		g[i] = (tBi-tB)/db;
-    		double gi = Math.abs(g[i]);
-    		if(gi>1 && delta > 1e-3/gi)
-    			delta = 1e-3/gi;
-    	}
-    	double[] BB = new double[N];
-    	for(int i=0;i<N;i++){
-    		BB[i] = B[i]*(1-delta*g[i]);
-    	}
-    	//restrictValues(BB);
-    	return BB;
-    }
-    
-    double[] fit4(double[] B){
-    	double tB = totalScore4(B);
-    	double ERR = 1e-2;
-    	int i=0;
-    	while(tB > ERR){
-    		print("tB="+tB);
-    		B = nextPoint4(B);
-    		tB = totalScore4(B);
-    		i++;
-    	}
-    	return B;
-    }
-    double totalScore4(double[] B){
-        	Ae = 0;
-        	assignParameters(B);
-        	double y = peakDfp(Ae,B);
-        	double x1 = y<=-0.3?0:(y+0.3)/0.3;
-        	return x1;
-    }
-    double[] nextPoint4(double[] B){
-    	double tB = totalScore4(B);
-    	double db = 1e-3;
-    	double delta=5e-2;
-    	double[] g = new double[N];
-    	for(int i=0;i<N;i++){
-    		double[] Bi = B.clone();
-    		Bi[i] = B[i]*(1+db);
-    		double tBi = totalScore4(Bi);
-    		g[i] = (tBi-tB)/db;
-    		double gi = Math.abs(g[i]);
-    		if(gi>1 && delta > 1e-3/gi)
-    			delta = 1e-3/gi;
-    	}
-    	double[] BB = new double[N];
-    	for(int i=0;i<N;i++){
-    		BB[i] = B[i]*(1-delta*g[i]);
-    	}
-    	//restrictValues(BB);
     	return BB;
     }
     public double[] set1(){
