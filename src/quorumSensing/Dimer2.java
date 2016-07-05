@@ -118,9 +118,15 @@ public class Dimer2 {
     	b.run();
     }
     public void run() throws FileNotFoundException{
-        for(double A=0;A<=300;A=A+1){
+       /* for(double A=0;A<=300;A=A+1){
             Ae = A;
             print(A+","+maxConcentration());
+        }*/
+    	Ae = 25;
+    	LinkedList<double[]> mc = multiComponents();
+        for(double[] x:mc){
+        	print(x);
+        	print("-----");
         }
     }
     void display(){
@@ -304,6 +310,15 @@ public class Dimer2 {
     	LinkedList<Double> so =  solveStationary(Ae);
         double P = so.getLast();
     	return allComponents(P);
+    }
+    LinkedList<double[]> multiComponents(){
+    	LinkedList<Double> so =  solveStationary(Ae);
+    	LinkedList<double[]> mc = new LinkedList<double[]>();
+    	mc.add(allComponents(so.getFirst()));
+    	int sN = so.size();
+    	if(sN>1)
+    		mc.add(allComponents(so.getLast()));
+    	return mc;
     }
     double[] allComponents(int i){
     	LinkedList<Double> so =  solveStationary(Ae);

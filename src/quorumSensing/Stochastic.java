@@ -35,8 +35,8 @@ public class Stochastic {
 		s.run();
 	}
 	public void run() throws IOException, EvalError{
-		 for(double Ae=100;Ae<=100;Ae=Ae+5)
-		 	oneAe(Ae);
+		 for(double A=0;A<=100;A=A+5)
+		 	oneAe(A);
 	}
 	void process(String outputFile) throws IOException, EvalError{
 		//String input = "data/input.txt";
@@ -58,20 +58,29 @@ public class Stochastic {
 		out.close();
 	}
 	void oneAe(double Ae) throws EvalError, IOException{
-		String output = "output_"+Ae+".txt";
-		double[] com = getComponents(Ae);
-		updateInitialValues(com,Ae);
-		print("output data to" +output);
-		process(output);
+		String outputT = "data/output_"+Ae+"_";
+		LinkedList<double[]> st = getComponents(Ae);
+		double sN = st.size();
+		for(int i=0;i<sN;i++){
+			double[] com = st.get(i);
+			updateInitialValues(com,Ae);
+			String output = outputT + i+".txt";
+			print("output data to" +output);
+			process(output);
+		}
 	}
-	double[] getComponents(double Ae){
+  LinkedList<double[]> getComponents(double Ae){
 		Dimer2 d = new Dimer2();
-		//d.Ae = Ae;
-		double[] components = d.allComponents();
-		int N = components.length;
-		for(int i=0;i<N;i++)
-			components[i] = Math.round(components[i]);
-		return components;
+		d.Ae = Ae;
+		LinkedList<double[]> mc = d.multiComponents();
+		int mN = mc.size();
+		for(int i=0;i<mN;i++){
+			double[] md = mc.get(i);
+			int dN = md.length;
+			for(int j=0;j<dN;j++)
+				md[j] = Math.round(md[j]);
+		}
+		return mc;
 	}
 	public void updateInitialValues (double[] com,double Ae) throws EvalError{
 		for(int i=0;i<Nc;i++)
